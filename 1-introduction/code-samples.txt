@@ -1,0 +1,99 @@
+For each of these skills, write pseudo-code (like the post = Post.all.first example above) to demonstrate how your application might perform these tasks through an ORM. 
+For each code sample, also write a corresponding SQL statement.
+
+====================================    
+====================================
+
+ - remove duplicates in a query response
+    PSEUDO-CODE: 
+    
+        unique_categories = table.all.distinct("category")
+    
+    SQL: 
+    
+        SELECT DISTINCT category FROM table; 
+    
+====================================    
+====================================
+
+ - filter records using inequalities, pattern matching, ranges, and boolean logic
+    PSEUDO-CODE: 
+    
+        fizz_and_10 = table.where("category LIKE %fizz% AND number >= 10")
+    
+    SQL: 
+    
+        SELECT * FROM table 
+        WHERE category LIKE %fizz%
+        AND number >= 10
+        
+====================================    
+====================================     
+
+ - sort records in a particular order
+    PSEUDO-CODE: 
+    
+        table.all().order('desc')
+    
+    SQL: 
+    
+        SELECT * FROM table 
+        ORDER BY category DESC
+ 
+====================================    
+==================================== 
+
+ - limit the number of records returned
+    PSEUDO-CODE: 
+    
+        table.all().count()
+    
+    SQL: 
+    
+        SELECT COUNT(*) FROM table 
+        
+====================================    
+====================================        
+
+ - group records into sections
+    PSEUDO-CODE: 
+    
+        table.all().group('category')
+    
+    SQL: 
+    
+        SELECT * FROM table 
+        GROUP BY category
+    
+====================================    
+====================================   
+
+ - perform calculations using aggregate functions
+    PSEUDO-CODE: 
+    
+        table.where(category: "fizzbuzz").sum("number")  
+    
+    SQL: 
+    
+        SELECT SUM(number) FROM table
+        WHERE category LIKE "fizzbuzz"
+ 
+====================================    
+==================================== 
+
+ - join tables using cross join, inner join, and outer join
+    PSEUDO-CODE: 
+    
+        table.join(table2, 'table.category', 'table2.category')
+        table.right_join(table2, 'table.category', 'table2.category')
+    
+    SQL: 
+    
+        SELECT * FROM table
+        JOIN table2 ON table.category = table2.category;
+        
+        SELECT * FROM table
+        RIGHT JOIN table2 ON table.category = table2.category;
+        
+====================================    
+====================================
